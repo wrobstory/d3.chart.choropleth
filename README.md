@@ -45,7 +45,7 @@ Sample API Documentation:
 
 **Description:**
 
-When value provided sets the height of the SVG. If no value provided, defaults to 500 for bl.ocks integration.
+When value provided sets the height of the map. If no value provided, defaults to 500 for bl.ocks integration.
 
 **Parameters:**
 
@@ -66,7 +66,7 @@ var map = d3.select("#map")
 
 **Description:**
 
-When value provided sets the width of the SVG. If no value provided, defaults to 960 for bl.ocks integration.
+When value provided sets the width of the map. If no value provided, defaults to 960 for bl.ocks integration.
 
 **Parameters:**
 
