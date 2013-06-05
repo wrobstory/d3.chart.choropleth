@@ -1,3 +1,4 @@
+(function() {
 d3.chart('Choropleth', {
 
     initialize: function() {
@@ -31,7 +32,7 @@ d3.chart('Choropleth', {
 
         chart.w = chart.base.attr('width') || 960;
         chart.h = chart.base.attr('height') || 500;
-        chart._range = chart._range || chart.brews['YlGnBu'];
+        chart._range = chart._range || chart.brews.YlGnBu;
         chart._domain = chart._domain || 0;
         chart._path = d3.geo.path();
         chart._projection = chart._projection || d3.geo.mercator();
@@ -45,12 +46,13 @@ d3.chart('Choropleth', {
 
           var chart = this.chart();
 
-          chart.geo_data = data['Geo'];
-          chart.data = data['ToBind'];
+          chart.geo_data = data.Geo;
+          chart.data = data.ToBind;
 
-          getMax = function(data) {
+          var getMax = function(data) {
             var maxVal = -1;
-            for (id in data) {
+            var maxId = null;
+            for (var id in data) {
               var value = data[id];
               if (value > maxVal) {
                 maxId = id;
@@ -70,7 +72,7 @@ d3.chart('Choropleth', {
         function insert() {
             var chart = this.chart();
 
-            scale = chart._scale;
+            var scale = chart._scale;
 
             return this.append("path")
                 .style("fill", function (d) { return chart.quantize(chart.data[d.id]); })
@@ -138,3 +140,4 @@ d3.chart('Choropleth', {
     }
 
 });
+}());

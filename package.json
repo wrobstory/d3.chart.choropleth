@@ -1,34 +1,28 @@
 {
-  "name": "d3.chart.template",
-  
-  "description": "A template for creating d3.chart based charts",
-
+  "name": "d3.chart.choropleth",
+  "description": "Create Choropleth maps with d3.chart",
   "version": "0.0.1",
-  
-  "author": "Your Name",
-  
-  "license": "MIT Expat",
-  
+  "author": "Rob Story",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/yourOrgOrName/d3.chart.chart.git"
+    "url": "git://github.com/wrobstory/d3.chart.choropleth"
   },
-  
   "keywords": [
     "d3.js",
     "visualization",
-    "svg"
+    "svg",
+    "choropleth",
+    "map"
   ],
-
   "d3.chart": {
-    "version" : "0.1.0"
+    "version": "0.1.0"
   },
-
   "devDependencies": {
-    "grunt": "~0.4.0",
-    "grunt-contrib-concat": "~0.1.3",
-    "grunt-contrib-uglify": "~0.1.1",
-    "grunt-contrib-jshint": "~0.1.1",
-    "grunt-contrib-watch" : "~0.3.1"
+    "grunt": "~0.4.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-watch": "~0.4.4"
   }
 }

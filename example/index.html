@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.counties {
+  fill: none;
+  stroke: #fff;
+  stroke-opacity: .3;
+}
+
+#map1 {
+  float:left;
+}
+
+</style>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="lib/d3.chart.js"></script>
+<script src="../src/choropleth.js"></script>
+
+        <div id="map1"></div>
+        <div id="map2"></div>
+
+<script>
+
+// Create two instances of a chart using d3 selections
+var chart_1 = d3.select('#map1')
+  .append("svg")
+  .attr("height", 500)
+  .attr("width", 480)
+  .chart("Choropleth")
+  .domain([0, 15])
+  .range('YlGnBu')
+  .projection(d3.geo.albersUsa())
+  .scale(500);
+
+var chart_2 = d3.select('#map2')
+  .append("svg")
+  .attr("height", 500)
+  .attr("width", 480)
+  .chart("Choropleth")
+  .domain([0, 25])
+  .range('OrRd')
+  .projection(d3.geo.albersUsa())
+  .scale(500);
+
+// Load the Data
+queue()
+    .defer(d3.json, 'data/Unemployment_2011.json')
+    .defer(d3.json, 'data/us_counties_20m_topo.json')
+    .await(makeMap)
+
+function makeMap(error, data, geo) {
+
+  county_feat = topojson.feature(geo, geo.objects.us_counties_20m).features
+  bind_data = data[0];
+  mapData = {'Geo': county_feat, 'ToBind': bind_data};
+
+  // Draw the charts
+  chart_1.draw(mapData)
+  chart_2.draw(mapData)
+
+};
+
+
+
+</script>
