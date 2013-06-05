@@ -122,7 +122,7 @@ var map = d3.select("#map")
 
 **Description:**
 
-When value provided sets the quantize scale domain for the map. Defaults to [0, data.max], where data.max is the maximum value in your data
+When value provided sets the quantize scale domain for the map. Defaults to ```[0, data.max]```
 
 **Parameters:**
 
