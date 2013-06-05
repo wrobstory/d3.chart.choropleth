@@ -9,7 +9,15 @@
 }
 
 #map1 {
-  float:left;
+  position: relative;
+}
+
+#map2 {
+  position: absolute;
+  top: 0px;
+  left: 480px;
+  height: 500px;
+  width: 480px;
 }
 
 </style>
@@ -28,23 +36,23 @@
 // Create two instances of a chart using d3 selections
 var chart_1 = d3.select('#map1')
   .append("svg")
-  .attr("height", 500)
-  .attr("width", 480)
   .chart("Choropleth")
   .domain([0, 15])
   .range('YlGnBu')
   .projection(d3.geo.albersUsa())
-  .scale(500);
+  .scale(500)
+  .height(500)
+  .width(480);
 
 var chart_2 = d3.select('#map2')
   .append("svg")
-  .attr("height", 500)
-  .attr("width", 480)
   .chart("Choropleth")
   .domain([0, 25])
   .range('OrRd')
   .projection(d3.geo.albersUsa())
-  .scale(500);
+  .scale(500)
+  .height(500)
+  .width(480);
 
 // Load the Data
 queue()
