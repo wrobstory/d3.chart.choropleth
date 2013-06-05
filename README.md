@@ -1,7 +1,7 @@
 d3.chart.choropleth
 ===================
 
-A d3.chart based choropleth map generator with an easily modified domain and built-in color-brewer colors based on a quantize scale.
+A d3.chart based choropleth map with an easily modified domain and built-in color-brewer colors based on a quantize scale.
 
 YlGnBu color brew:
 
