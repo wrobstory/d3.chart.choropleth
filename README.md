@@ -35,6 +35,7 @@ var chart_2 = d3.select('#map2')
   .range('OrRd')
   .projection(d3.geo.albersUsa())
   .scale(500);
+```
 
 ### API
 
@@ -100,7 +101,7 @@ When value provided sets the color range for the map, based on the [color brewer
 * YlOrBr
 * YlOrRd
 
-Defaults to YlGnBu
+Defaults to YlGnBu.
 
 **Parameters:**
 
@@ -114,6 +115,68 @@ Example:
 var map = d3.select("#map")
   .append("svg")
   .chart("Choropleth")
-  .width(900);
+  .range('RdPu');
 ```
 
+#### `<instance>.domain(newDomain)`
+
+**Description:**
+
+When value provided sets the quantize scale domain for the map. Defaults to [0, data.max], where data.max is the maximum value in your data
+
+**Parameters:**
+
+* `newDomain` - Array, optional, new quantize scale domain
+
+**Uses:**
+
+Example:
+
+```javascript
+var map = d3.select("#map")
+  .append("svg")
+  .chart("Choropleth")
+  .domain([10, 50]);
+```
+
+#### `<instance>.projection(newProjection)`
+
+**Description:**
+
+When value provided sets the map projection. Defaults to d3.geo.mercator. See the [D3 projections page](https://github.com/mbostock/d3/wiki/Geo-Projections) for additional projection options.
+
+**Parameters:**
+
+* `newProjection` - d3.geo projection, optional, new projection
+
+**Uses:**
+
+Example:
+
+```javascript
+var map = d3.select("#map")
+  .append("svg")
+  .chart("Choropleth")
+  .projection(d3.geo.stereographic());
+```
+
+#### `<instance>.scale(newScale)`
+
+**Description:**
+
+When value provided sets the map scale. Defaults to 1000.
+
+**Parameters:**
+
+* `newScale` - Integer, optional, new map scale
+
+**Uses:**
+
+Example:
+
+```javascript
+var map = d3.select("#map")
+  .append("svg")
+  .chart("Choropleth")
+  .scale(100)
+```
